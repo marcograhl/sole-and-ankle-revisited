@@ -1,7 +1,9 @@
 import React from 'react';
 import styled from 'styled-components/macro';
-
-import { COLORS, WEIGHTS } from '../../constants';
+import UnstyledButton from '../UnstyledButton';
+import Icon from '../Icon';
+import VisuallyHidden from '../VisuallyHidden';
+import { COLORS, WEIGHTS, QUERIES } from '../../constants';
 import Logo from '../Logo';
 import SuperHeader from '../SuperHeader';
 import MobileMenu from '../MobileMenu';
@@ -21,21 +23,36 @@ const Header = () => {
         <Side>
           <Logo />
         </Side>
-        <Nav>
+        <DesktopNav>
           <NavLink href="/sale">Sale</NavLink>
           <NavLink href="/new">New&nbsp;Releases</NavLink>
           <NavLink href="/men">Men</NavLink>
           <NavLink href="/women">Women</NavLink>
           <NavLink href="/kids">Kids</NavLink>
           <NavLink href="/collections">Collections</NavLink>
-        </Nav>
+        </DesktopNav>
         <Side />
-      </MainHeader>
-
-      <MobileMenu
+        <MobileActions>
+          <ShoppingButton>
+            <Icon id='shopping-bag' size='24' />
+            <VisuallyHidden>shopping cart</VisuallyHidden>
+          </ShoppingButton>
+          <UnstyledButton>
+            <Icon id='search' size='24' />
+            <VisuallyHidden>shopping cart</VisuallyHidden>
+          </UnstyledButton>
+          <UnstyledButton>
+            <Icon id='menu' size='24' />
+            <VisuallyHidden>shopping cart</VisuallyHidden>
+          </UnstyledButton>
+        </MobileActions>
+        <MobileMenu
         isOpen={showMobileMenu}
         onDismiss={() => setShowMobileMenu(false)}
-      />
+        />
+      </MainHeader>
+
+
     </header>
   );
 };
@@ -46,13 +63,41 @@ const MainHeader = styled.div`
   padding: 18px 32px;
   height: 72px;
   border-bottom: 1px solid ${COLORS.gray[300]};
+  border-top: 4px solid ${COLORS.gray[900]};
+  @media(${QUERIES.laptopAndSmaller}) {
+    align-itmes: center;
+  }
+  @media(${QUERIES.tabletAndSmaller}) {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
 `;
 
-const Nav = styled.nav`
+const MobileActions = styled.div`
+display: none;
+gap: 36px;
+@media(${QUERIES.laptopAndSmaller}) {
+  display: flex;
+};
+@media(${QUERIES.tabletAndSmaller}) {
+  gap: 20px;
+};
+
+`
+const DesktopNav = styled.nav`
   display: flex;
   gap: 48px;
   margin: 0px 48px;
+@media(${ QUERIES.laptopAndSmaller }) {
+  display: none;
+}
 `;
+
+const ShoppingButton = styled(UnstyledButton)`
+transform: translateX(-2px);
+`
+
+
 
 const Side = styled.div`
   flex: 1;

@@ -16,3 +16,18 @@ export const WEIGHTS = {
   medium: 600,
   bold: 800,
 };
+
+
+
+// For this example, I'm going mobile-first.
+export const BREAKPOINTS = {
+  tabletMin: 600 / 16,
+  laptopMin: 950 / 16,
+  desktopMin: 1300 / 16,
+}
+
+export const QUERIES = {
+  'tabletAndSmaller': `(max-width: ${BREAKPOINTS.tabletMin}rem)`,
+  'laptopAndSmaller': `(max-width: ${BREAKPOINTS.laptopMin}rem)`,
+  'desktopAndSmaller': `(max-width: ${BREAKPOINTS.desktopMin}rem)`,
+}

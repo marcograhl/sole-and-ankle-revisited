@@ -11,11 +11,11 @@ import VisuallyHidden from '../VisuallyHidden';
 
 const MobileMenu = ({ isOpen, onDismiss }) => {
   if (!isOpen) {
-    return null;
+    return null
   }
 
   return (
-    <div>
+    <Wrapper>
       <button onClick={onDismiss}>Dismiss menu</button>
       <nav>
         <a href="/sale">Sale</a>
@@ -30,8 +30,14 @@ const MobileMenu = ({ isOpen, onDismiss }) => {
         <a href="/privacy">Privacy Policy</a>
         <a href="/contact">Contact Us</a>
       </footer>
-    </div>
+    </Wrapper>
   );
 };
+
+
+
+const Wrapper = styled.div`
+`
+
 
 export default MobileMenu;
