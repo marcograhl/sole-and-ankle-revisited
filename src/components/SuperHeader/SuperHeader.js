@@ -23,6 +23,9 @@ const SuperHeader = () => {
 };
 
 const Wrapper = styled.div`
+  position: sticky;
+  left: 0;
+  right: 0;
   display: flex;
   align-items: center;
   gap: 24px;
